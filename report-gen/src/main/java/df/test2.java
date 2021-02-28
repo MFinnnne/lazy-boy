@@ -16,11 +16,10 @@ public class test2 {
     public static void main(String[] args) throws SQLException {
 
 
-
         Connection conn = DriverManager.getConnection(URL);
         DatabaseMetaData meta = (DatabaseMetaData) conn.getMetaData();
 
-        ResultSet rs = meta.getColumns(null, "%", "products", "%");
+        ResultSet rs = meta.getColumns(null, "%", "role", "%");
 
         while (rs.next()) {
             // table catalog (may be null)
@@ -49,6 +48,7 @@ public class test2 {
             // is NULL allowed.
             int nullAble = rs.getInt("NULLABLE");
             // comment describing column (may be null)
+            //注释
             String remarks = rs.getString("REMARKS");
             // default value for the column, which should be interpreted as
             // a string when the value is enclosed in single quotes (may be
